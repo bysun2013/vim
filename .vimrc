@@ -30,10 +30,12 @@ let Tlist_Show_One_File=1
 let Tlist_Auto_Open=0
 " taglist是最后一个窗口时退出vim
 let Tlist_Exit_OnlyWindow=1 
-" taglist始终解析文件中的tag，不管taglist窗口有没有打开
+" taglist实时解析文件中的tag
 let Tlist_Process_File_Always=1
 " 输入焦点在taglist窗口中
 let Tlist_GainFocus_On_ToggleOpen=1
+" 非当前文件，函数列表折叠隐藏
+let Tlist_File_Fold_Auto_Close=1
 
 noremap <silent> <F9> :TlistToggle<CR> 
 nnoremap <silent> <F3> :grep<CR> 
@@ -70,3 +72,18 @@ nmap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 """"""""""""""""""""""""""""
 nmap <F6> :cn<CR>
 nmap <F7> :cp<CR>
+
+""""""""""""""""""""""""""""
+" WinManager
+""""""""""""""""""""""""""""
+let g:winManagerWindowLayout='FileExplorer|TagList'
+nmap wm :WMToggle<CR>
+
+""""""""""""""""""""""""""""
+" MiniBufExplorer
+""""""""""""""""""""""""""""
+" 按下Ctrl+箭头，可以切换到当前窗口的上下左右窗口
+let g:miniBufExplMapWindowNavArrows = 1
+" Ctrl+tab移到下一个buffer并在当前窗口打开；
+let g:miniBufExplMapCTabSwitchBufs = 1
+" let g:miniBufExplorerMoreThanOne = 0
