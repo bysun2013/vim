@@ -1,11 +1,11 @@
 set nocompatible
 set number
 set ruler
-set hlsearch
+set nohlsearch
 set showmatch
 set history=1000
 set fileencodings=utf-8,gb
-"set background=dark
+colorscheme darkblue
 filetype on
 filetype plugin on
 filetype indent on
@@ -55,8 +55,6 @@ if has("cscope")
 	endif
 	set csverb
 endif
-" vim会根据编译器输出的错误信息，自动跳到第一个出错的地方
-set cscopequickfix=s-,g-,c-,d-,i-,t-,e-,f-
 
 nmap <C-_>s :cs find s <C-R>=expand("<cword>")<CR><CR>
 nmap <C-_>g :cs find g <C-R>=expand("<cword>")<CR><CR>
@@ -66,6 +64,9 @@ nmap <C-_>e :cs find e <C-R>=expand("<cword>")<CR><CR>
 nmap <C-_>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
 nmap <C-_>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 nmap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+
+" vim会根据编译器输出的错误信息，自动跳到第一个出错的地方
+set cscopequickfix=s-,c-,d-,i-,t-,e-
 
 """"""""""""""""""""""""""""
 " Quickfix
